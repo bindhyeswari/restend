@@ -14,14 +14,15 @@ module.exports = function(model, router) {
     // POST request to the /models returns the identifier for the newly created item
     router.post(path, function (req, res) {
         req.body.id = uuid.v4();
+        console.log(req.body);
         data[req.body.id] = req.body;
-        res.status(200).json({ message: 'Created data on resource successfully', id: req.body.id });
+        res.status(200).json({ message: 'Created data on resource successfully!', id: req.body.id });
     });
 
     // PUT request to the /models returns the identifier for the newly created item
     router.put(path + '/:id', function (req, res) {
         data[req.params.id] = req.body;
-        res.status(200).json({ message: 'Created data on resource successfully', id: req.body.id });
+        res.status(200).json({ message: 'Updated data on resource successfully!', id: req.body.id });
     });
 
     // POST request to the /models returns the identifier for the newly created item
