@@ -8,7 +8,11 @@ module.exports = function(model, router) {
 
     // GET request to the /models returns all the data available
     router.get(path, function (req, res) {
-        res.status(200).json(data);
+        var arr = [];
+        for (var prop in data) {
+            arr.push(data[prop]);
+        }
+        res.status(200).json(arr);
     });
 
     // POST request to the /models returns the identifier for the newly created item
